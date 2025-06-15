@@ -7,31 +7,49 @@
   </head>
   <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs="sourceType: webcam;">
-      
-      <!-- AR Marker -->
+
+      <!-- Marker -->
       <a-marker preset="hiro">
+        
+        <!-- Main Message -->
+        <a-text 
+          value="To the man who does it all…" 
+          position="0 1.4 0" 
+          rotation="-90 0 0" 
+          color="#FFD700" 
+          align="center" 
+          width="4"
+          animation__fade="property: opacity; from: 0; to: 1; dur: 1500; delay: 500"
+        ></a-text>
 
-        <!-- Central Tribute Text -->
-        <a-text value="To the man who does it all…" position="0 1 0" rotation="-90 0 0" color="#FFD700" align="center" scale="3 3 3"></a-text>
-
-        <!-- Rotating 3D Heart -->
-        <a-entity geometry="primitive: sphere; radius: 0.3" material="color: red; metalness: 0.5" position="0 0.3 0">
-          <a-animation attribute="rotation" to="0 360 0" dur="6000" repeat="indefinite"></a-animation>
+        <!-- Central Heart -->
+        <a-entity 
+          geometry="primitive: sphere; radius: 0.25" 
+          material="color: red; metalness: 0.5; roughness: 0.2" 
+          position="0 0.6 0">
+          <a-animation 
+            attribute="rotation" 
+            to="0 360 0" 
+            dur="6000" 
+            repeat="indefinite">
+          </a-animation>
         </a-entity>
 
-        <!-- Orbiting Keywords -->
-        <a-entity id="keywords">
-          <a-text value="Fixer" position="0.6 0.3 0" color="skyblue" scale="1.5 1.5 1.5"></a-text>
-          <a-text value="Protector" position="-0.6 0.3 0" color="orange" scale="1.5 1.5 1.5"></a-text>
-          <a-text value="Grill Master" position="0 0.3 0.6" color="green" scale="1.5 1.5 1.5"></a-text>
-          <a-text value="Life Coach" position="0 0.3 -0.6" color="violet" scale="1.5 1.5 1.5"></a-text>
-          <a-text value="Taxi Driver" position="0.4 0.3 -0.4" color="tomato" scale="1.5 1.5 1.5"></a-text>
-        </a-entity>
-        <a-animation attribute="rotation" dur="10000" repeat="indefinite" to="0 360 0" easing="linear" 
-          direction="alternate" begin="0" fill="forwards" id="orbitAnim" target="#keywords"></a-animation>
+        <!-- Structured Text Tributes -->
+        <a-text value="Protector" color="#87CEEB" position="-0.9 0.9 0" rotation="-90 0 0" width="2"></a-text>
+        <a-text value="Grill Master" color="#FFA07A" position="0.9 0.9 0" rotation="-90 0 0" width="2"></a-text>
+        <a-text value="Taxi Driver" color="#32CD32" position="-0.9 0.3 0.7" rotation="-90 45 0" width="2"></a-text>
+        <a-text value="Fixer" color="#FF6347" position="0.9 0.3 0.7" rotation="-90 -45 0" width="2"></a-text>
+        <a-text value="Teacher" color="#BA55D3" position="0 0.3 -0.9" rotation="-90 0 0" width="2"></a-text>
+        <a-text value="Best Friend" color="#1E90FF" position="0 0.9 -0.9" rotation="-90 0 0" width="2"></a-text>
 
-        <!-- Optional Audio Tribute -->
-        <a-sound src="https://cdn.pixabay.com/download/audio/2022/02/23/audio_cfaebfa4ee.mp3" autoplay="true" loop="false" position="0 1 0"></a-sound>
+        <!-- Optional Background Music -->
+        <a-sound 
+          src="https://cdn.pixabay.com/download/audio/2022/02/23/audio_cfaebfa4ee.mp3" 
+          autoplay="true" 
+          loop="false" 
+          position="0 1 0">
+        </a-sound>
 
       </a-marker>
 
