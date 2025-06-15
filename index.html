@@ -26,6 +26,7 @@
         cursor: pointer;
         z-index: 10;
         box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        display: none; /* Hidden by default */
       }
 
       #playBtn:hover {
@@ -35,14 +36,14 @@
   </head>
   <body>
     <a-scene embedded arjs="sourceType: webcam;">
-      
-      <!-- Load Local Audio -->
+
+      <!-- Audio asset -->
       <a-assets>
         <audio id="voiceClip" src="message.mp3"></audio>
       </a-assets>
 
       <!-- Marker -->
-      <a-marker preset="hiro">
+      <a-marker preset="hiro" id="hiroMarker">
 
         <!-- Title -->
         <a-text 
@@ -72,18 +73,28 @@
 
       <!-- Camera -->
       <a-entity camera></a-entity>
-
     </a-scene>
 
-    <!-- HTML Audio Button -->
+    <!-- HTML Button (hidden initially) -->
     <button id="playBtn">▶ Play Message</button>
 
     <script>
       const playBtn = document.getElementById('playBtn');
       const audio = document.getElementById('voiceClip');
+      const marker = document.getElementById('hiroMarker');
 
       playBtn.addEventListener('click', () => {
         audio.play();
+      });
+
+      marker.addEventListener('markerFound', () => {
+        playBtn.style.display = 'block';
+      });
+
+      marker.addEventListener('markerLost', () => {
+        playBtn.style.display = 'none';
+        audio.pause();
+        audio.currentTime = 0;
       });
     </script>
   </body>
