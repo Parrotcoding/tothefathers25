@@ -8,15 +8,15 @@
   <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs="sourceType: webcam;">
       
-      <!-- Asset Loader -->
+      <!-- Load 3D Model -->
       <a-assets>
-        <a-asset-item id="heartModel" src="https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models@master/2.0/Heart/glTF-Binary/Heart.glb"></a-asset-item>
+        <a-asset-item id="heartModel" src="https://cdn.glitch.global/d4cda1a5-445d-4bfa-84a6-f49e6f85925d/heart.glb?v=1718485828432"></a-asset-item>
       </a-assets>
 
       <!-- Marker -->
       <a-marker preset="hiro">
 
-        <!-- Main Message -->
+        <!-- Main Title -->
         <a-text 
           value="To the man who does it all…" 
           position="0 1.4 0" 
@@ -27,15 +27,15 @@
           animation__fade="property: opacity; from: 0; to: 1; dur: 1500; delay: 500"
         ></a-text>
 
-        <!-- 3D Heart Model -->
+        <!-- 3D Heart -->
         <a-entity 
           gltf-model="#heartModel" 
           position="0 0.6 0" 
-          scale="0.5 0.5 0.5"
-          animation="property: rotation; to: 0 360 0; loop: true; dur: 6000"
-        ></a-entity>
+          scale="1 1 1"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 6000">
+        </a-entity>
 
-        <!-- Orbiting Tribute Words (Same Speed) -->
+        <!-- Orbiting Tribute Words -->
         <a-entity id="orbit-group" position="0 0.6 0">
           <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 12000">
             <a-text value="Protector" position="0 0 -1.2" rotation="-90 0 0" color="#87CEEB" width="2"></a-text>
@@ -49,7 +49,7 @@
           </a-entity>
         </a-entity>
 
-        <!-- Music -->
+        <!-- Background Music -->
         <a-sound 
           src="https://cdn.pixabay.com/download/audio/2022/02/23/audio_cfaebfa4ee.mp3" 
           autoplay="true" 
