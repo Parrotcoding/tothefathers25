@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Father's Day AR Tribute</title>
+    <title>Dad Who Does It All – AR Tribute</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
   </head>
   <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs="sourceType: webcam;">
       
+      <!-- Audio asset -->
+      <a-assets>
+        <audio id="voiceClip" src="https://voca.ro/1oRoXANjfVUC"></audio>
+      </a-assets>
+
       <!-- Marker -->
       <a-marker preset="hiro">
 
-        <!-- Main Message -->
+        <!-- Title -->
         <a-text 
-          value="To the man who does it all…" 
+          value="To the dad who does it all…" 
           position="0 1.4 0" 
           rotation="-90 0 0" 
           color="#FFD700" 
           align="center" 
-          width="4"
-          animation="property: opacity; from: 0; to: 1; dur: 1500; delay: 500">
+          width="4">
         </a-text>
 
         <!-- Orbiting Tribute Words -->
@@ -36,13 +40,25 @@
           </a-entity>
         </a-entity>
 
-        <!-- Audio Tribute -->
-        <a-sound 
-          src="https://voca.ro/12PPfUdqmJJo" 
-          autoplay="true" 
-          loop="false" 
-          position="0 1 0">
-        </a-sound>
+        <!-- Play Audio Button -->
+        <a-box 
+          id="playButton"
+          position="0 0.3 0" 
+          depth="0.1" height="0.2" width="1"
+          color="#00CED1"
+          sound="on: click; src: #voiceClip"
+          event-set__mouseenter="_event: mouseenter; color: #00FFFF"
+          event-set__mouseleave="_event: mouseleave; color: #00CED1">
+        </a-box>
+
+        <a-text 
+          value="▶ Play Message" 
+          position="0 0.3 0.06" 
+          align="center" 
+          color="black" 
+          width="2" 
+          rotation="-90 0 0">
+        </a-text>
 
       </a-marker>
 
