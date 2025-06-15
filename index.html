@@ -22,23 +22,23 @@
           animation="property: opacity; from: 0; to: 1; dur: 1500; delay: 500">
         </a-text>
 
-        <!-- Procedural Heart -->
-        <a-entity position="0 0.6 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 6000">
-
+        <!-- Procedural Heart (spinning and facing front) -->
+        <a-entity position="0 0.6 0" rotation="-90 0 0" animation="property: rotation; to: -90 360 0; loop: true; dur: 6000">
+        
           <!-- Left lobe -->
           <a-sphere 
             position="-0.15 0 0" 
             radius="0.15" 
             color="red">
           </a-sphere>
-
+        
           <!-- Right lobe -->
           <a-sphere 
             position="0.15 0 0" 
             radius="0.15" 
             color="red">
           </a-sphere>
-
+        
           <!-- Point -->
           <a-cone 
             position="0 -0.12 0" 
@@ -48,9 +48,8 @@
             radius-top="0.01" 
             color="red">
           </a-cone>
-
+        
         </a-entity>
-
         <!-- Orbiting Words -->
         <a-entity position="0 0.6 0">
           <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 12000">
