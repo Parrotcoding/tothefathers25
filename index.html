@@ -2,15 +2,43 @@
 <html>
   <head>
     <title>Dad Who Does It All – AR Tribute</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+
+      #playBtn {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 12px 24px;
+        background-color: #00CED1;
+        color: black;
+        border: none;
+        border-radius: 999px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }
+
+      #playBtn:hover {
+        background-color: #00ffff;
+      }
+    </style>
   </head>
-  <body style="margin: 0; overflow: hidden;">
+  <body>
     <a-scene embedded arjs="sourceType: webcam;">
       
-      <!-- Audio asset -->
+      <!-- Audio -->
       <a-assets>
-        <audio id="voiceClip" src="https://voca.ro/1oRoXANjfVUC"></audio>
+        <audio id="voiceClip" src="your-audio-url.mp3"></audio>
       </a-assets>
 
       <!-- Marker -->
@@ -40,31 +68,23 @@
           </a-entity>
         </a-entity>
 
-        <!-- Play Audio Button -->
-        <a-box 
-          id="playButton"
-          position="0 0.3 0" 
-          depth="0.1" height="0.2" width="1"
-          color="#00CED1"
-          sound="on: click; src: #voiceClip"
-          event-set__mouseenter="_event: mouseenter; color: #00FFFF"
-          event-set__mouseleave="_event: mouseleave; color: #00CED1">
-        </a-box>
-
-        <a-text 
-          value="▶ Play Message" 
-          position="0 0.3 0.06" 
-          align="center" 
-          color="black" 
-          width="2" 
-          rotation="-90 0 0">
-        </a-text>
-
       </a-marker>
 
       <!-- Camera -->
       <a-entity camera></a-entity>
 
     </a-scene>
+
+    <!-- Real HTML Button -->
+    <button id="playBtn">▶ Play Message</button>
+
+    <script>
+      const playBtn = document.getElementById('playBtn');
+      const audio = document.getElementById('voiceClip');
+
+      playBtn.addEventListener('click', () => {
+        audio.play();
+      });
+    </script>
   </body>
 </html>
