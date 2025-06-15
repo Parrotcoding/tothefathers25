@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Father's Day AR Heart Tribute</title>
+    <title>Father's Day AR Tribute</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
   </head>
@@ -11,7 +11,7 @@
       <!-- Marker -->
       <a-marker preset="hiro">
 
-        <!-- Message -->
+        <!-- Main Message -->
         <a-text 
           value="To the man who does it all…" 
           position="0 1.4 0" 
@@ -22,35 +22,7 @@
           animation="property: opacity; from: 0; to: 1; dur: 1500; delay: 500">
         </a-text>
 
-        <!-- Procedural Heart (spinning and facing front) -->
-        <a-entity position="0 0.6 0" rotation="-90 0 0" animation="property: rotation; to: -90 360 0; loop: true; dur: 6000">
-        
-          <!-- Left lobe -->
-          <a-sphere 
-            position="-0.15 0 0" 
-            radius="0.15" 
-            color="red">
-          </a-sphere>
-        
-          <!-- Right lobe -->
-          <a-sphere 
-            position="0.15 0 0" 
-            radius="0.15" 
-            color="red">
-          </a-sphere>
-        
-          <!-- Point -->
-          <a-cone 
-            position="0 -0.12 0" 
-            rotation="180 0 0" 
-            height="0.3" 
-            radius-bottom="0.15" 
-            radius-top="0.01" 
-            color="red">
-          </a-cone>
-        
-        </a-entity>
-        <!-- Orbiting Words -->
+        <!-- Orbiting Tribute Words -->
         <a-entity position="0 0.6 0">
           <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 12000">
             <a-text value="Protector" position="0 0 -1.2" rotation="-90 0 0" color="#87CEEB" width="2"></a-text>
@@ -64,9 +36,9 @@
           </a-entity>
         </a-entity>
 
-        <!-- Music -->
+        <!-- Audio Tribute -->
         <a-sound 
-          src="https://cdn.pixabay.com/download/audio/2022/02/23/audio_cfaebfa4ee.mp3" 
+          src="https://voca.ro/12PPfUdqmJJo" 
           autoplay="true" 
           loop="false" 
           position="0 1 0">
