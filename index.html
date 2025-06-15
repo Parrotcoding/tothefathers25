@@ -8,10 +8,15 @@
   <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs="sourceType: webcam;">
       
+      <!-- Asset Loader -->
+      <a-assets>
+        <a-asset-item id="heartModel" src="https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models@master/2.0/Heart/glTF-Binary/Heart.glb"></a-asset-item>
+      </a-assets>
+
       <!-- Marker -->
       <a-marker preset="hiro">
 
-        <!-- Central Message -->
+        <!-- Main Message -->
         <a-text 
           value="To the man who does it all…" 
           position="0 1.4 0" 
@@ -22,55 +27,29 @@
           animation__fade="property: opacity; from: 0; to: 1; dur: 1500; delay: 500"
         ></a-text>
 
-        <!-- Heart at Center -->
+        <!-- 3D Heart Model -->
         <a-entity 
-          geometry="primitive: sphere; radius: 0.25" 
-          material="color: red; metalness: 0.5; roughness: 0.2" 
-          position="0 0.6 0">
-          <a-animation 
-            attribute="rotation" 
-            to="0 360 0" 
-            dur="6000" 
-            repeat="indefinite">
-          </a-animation>
-        </a-entity>
+          gltf-model="#heartModel" 
+          position="0 0.6 0" 
+          scale="0.5 0.5 0.5"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 6000"
+        ></a-entity>
 
-        <!-- Orbit Container for Tribute Words -->
+        <!-- Orbiting Tribute Words (Same Speed) -->
         <a-entity id="orbit-group" position="0 0.6 0">
-          
-          <!-- Word: Protector -->
-          <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
-            <a-text value="Protector" position="0 0 -1" rotation="-90 0 0" color="#87CEEB" width="2"></a-text>
+          <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 12000">
+            <a-text value="Protector" position="0 0 -1.2" rotation="-90 0 0" color="#87CEEB" width="2"></a-text>
+            <a-text value="Grill Master" position="0.85 0 -0.85" rotation="-90 -45 0" color="#FFA07A" width="2"></a-text>
+            <a-text value="Taxi Driver" position="1.2 0 0" rotation="-90 -90 0" color="#32CD32" width="2"></a-text>
+            <a-text value="Fixer" position="0.85 0 0.85" rotation="-90 -135 0" color="#FF6347" width="2"></a-text>
+            <a-text value="Teacher" position="0 0 1.2" rotation="-90 -180 0" color="#BA55D3" width="2"></a-text>
+            <a-text value="Best Friend" position="-0.85 0 0.85" rotation="-90 -225 0" color="#1E90FF" width="2"></a-text>
+            <a-text value="Coach" position="-1.2 0 0" rotation="-90 -270 0" color="#FFD700" width="2"></a-text>
+            <a-text value="Hero" position="-0.85 0 -0.85" rotation="-90 -315 0" color="#FF69B4" width="2"></a-text>
           </a-entity>
-
-          <!-- Word: Grill Master -->
-          <a-entity rotation="0 90 0" animation="property: rotation; to: 0 450 0; loop: true; dur: 12000">
-            <a-text value="Grill Master" position="0 0 -1" rotation="-90 0 0" color="#FFA07A" width="2"></a-text>
-          </a-entity>
-
-          <!-- Word: Taxi Driver -->
-          <a-entity rotation="0 180 0" animation="property: rotation; to: 0 540 0; loop: true; dur: 11000">
-            <a-text value="Taxi Driver" position="0 0 -1" rotation="-90 0 0" color="#32CD32" width="2"></a-text>
-          </a-entity>
-
-          <!-- Word: Fixer -->
-          <a-entity rotation="0 270 0" animation="property: rotation; to: 0 630 0; loop: true; dur: 13000">
-            <a-text value="Fixer" position="0 0 -1" rotation="-90 0 0" color="#FF6347" width="2"></a-text>
-          </a-entity>
-
-          <!-- Word: Teacher -->
-          <a-entity rotation="0 45 0" animation="property: rotation; to: 0 405 0; loop: true; dur: 11500">
-            <a-text value="Teacher" position="0 0 -1" rotation="-90 0 0" color="#BA55D3" width="2"></a-text>
-          </a-entity>
-
-          <!-- Word: Best Friend -->
-          <a-entity rotation="0 135 0" animation="property: rotation; to: 0 495 0; loop: true; dur: 10500">
-            <a-text value="Best Friend" position="0 0 -1" rotation="-90 0 0" color="#1E90FF" width="2"></a-text>
-          </a-entity>
-
         </a-entity>
 
-        <!-- Background Music -->
+        <!-- Music -->
         <a-sound 
           src="https://cdn.pixabay.com/download/audio/2022/02/23/audio_cfaebfa4ee.mp3" 
           autoplay="true" 
@@ -82,7 +61,7 @@
 
       <!-- Camera -->
       <a-entity camera></a-entity>
-      
+
     </a-scene>
   </body>
 </html>
