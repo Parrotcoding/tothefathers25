@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Father's Day AR Tribute</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs="sourceType: webcam;">
+      
+      <!-- AR Marker -->
+      <a-marker preset="hiro">
+
+        <!-- Central Tribute Text -->
+        <a-text value="To the man who does it all…" position="0 1 0" rotation="-90 0 0" color="#FFD700" align="center" scale="3 3 3"></a-text>
+
+        <!-- Rotating 3D Heart -->
+        <a-entity geometry="primitive: sphere; radius: 0.3" material="color: red; metalness: 0.5" position="0 0.3 0">
+          <a-animation attribute="rotation" to="0 360 0" dur="6000" repeat="indefinite"></a-animation>
+        </a-entity>
+
+        <!-- Orbiting Keywords -->
+        <a-entity id="keywords">
+          <a-text value="Fixer" position="0.6 0.3 0" color="skyblue" scale="1.5 1.5 1.5"></a-text>
+          <a-text value="Protector" position="-0.6 0.3 0" color="orange" scale="1.5 1.5 1.5"></a-text>
+          <a-text value="Grill Master" position="0 0.3 0.6" color="green" scale="1.5 1.5 1.5"></a-text>
+          <a-text value="Life Coach" position="0 0.3 -0.6" color="violet" scale="1.5 1.5 1.5"></a-text>
+          <a-text value="Taxi Driver" position="0.4 0.3 -0.4" color="tomato" scale="1.5 1.5 1.5"></a-text>
+        </a-entity>
+        <a-animation attribute="rotation" dur="10000" repeat="indefinite" to="0 360 0" easing="linear" 
+          direction="alternate" begin="0" fill="forwards" id="orbitAnim" target="#keywords"></a-animation>
+
+        <!-- Optional Audio Tribute -->
+        <a-sound src="https://cdn.pixabay.com/download/audio/2022/02/23/audio_cfaebfa4ee.mp3" autoplay="true" loop="false" position="0 1 0"></a-sound>
+
+      </a-marker>
+
+      <!-- Camera -->
+      <a-entity camera></a-entity>
+
+    </a-scene>
+  </body>
+</html>
